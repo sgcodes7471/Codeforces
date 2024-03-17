@@ -1,0 +1,22 @@
+#include <iostream>
+#include<bits/stdc++.h>
+#include <algorithm>
+using namespace std;
+int main() {
+   int n,m;
+   cin>>n>>m;
+    string d[m];
+    string c[m];
+    string l="";
+    for(int i=0;i<m;i++)
+        cin>>d[i]>>c[i];
+    for(int i=0;i<n;i++){
+        string s;
+        cin>>s;
+        int k=find(d,d+m,s)-d;
+        l+=(d[k].length()>c[k].length())?c[k]:d[k];
+        l+=" ";
+    }
+    cout<<l<<endl;
+    return 0;
+}
