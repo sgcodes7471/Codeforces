@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <math.h>
+static int bact(int x, int i){
+        if(x==0)
+            return 0;
+        if(x==1)
+            return 1;
+        if((x/2)<(int)pow(2,i))
+            return (1+bact((x-(int)pow(2,i)), 0));
+        return bact(x, i+1);
+    }
+int main() {
+    
+int x;
+scanf("%d" , &x);
+printf("%d" , bact(x,0));
+    return 0;
+}
