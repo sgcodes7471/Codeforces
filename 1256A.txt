@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    while(q--){
+       long long  int a, b, n, s;
+        cin>>a>>b>>n>>s;
+        long long int c=s/n;
+        if(c>a)
+        s-=a*n;
+        else 
+        s-=c*n;
+        
+        if(s<=b)
+            cout<<"YES"<<endl;
+        else
+            cout<<"NO"<<endl;
+    }
+    return 0;
+}
