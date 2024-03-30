@@ -1,0 +1,53 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,k,a, b,c;
+    cin>>n;
+    int m;
+    a=b=c=k=0;
+    for(int i=0;i<n;i++)    {
+        cin>>m;
+        if(m==1)
+            a++;
+        if(m==2)
+            b++;
+        if(m==3)
+            c++;
+        if(m==4)
+            k++;
+    }
+     if(c>a){
+         k+=a;
+         c-=a;
+         a=0;
+         k+=c;
+     }else if(c<a){
+         k+=c;
+         a-=c;
+     }else{
+         k+=c;
+         c=a=0;
+     }
+     
+     k+=b/2;
+     b=b%2;
+     
+     if(a<3 && a>0 && b!=0){
+         a=b=0;
+         k++;
+     }else if(b!=0 && a>3){
+         b=0;
+         a-=2;
+         k++;
+     }
+     if(b!=0){
+         k++;
+     }
+     while(a>0){
+             a-=4;
+             k++;
+         }
+    cout<<k;
+    return 0;
+}
