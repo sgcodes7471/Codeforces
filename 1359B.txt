@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+      int n,m,x,y;
+      cin>>n>>m>>x>>y;
+      char a[n][m];
+      int white_tiles=0;
+      //the input of the tiles
+      for(int i=0;i<n;i++){
+          for(int j=0;j<m;j++)
+            {
+                cin>>a[i][j];
+                if(a[i][j]=='.')
+                    white_tiles++;
+            }
+      }
+      //in case the price of 1x1 is better deal
+      white_tiles*=x;
+      if(x*2<y){
+          cout<<white_tiles<<endl;
+          continue;
+      }
+      
+     int price=0;
+     for(int i=0;i<n;i++){
+         int count=0;
+         int flag=0;
+         for(int j=0;j<m;j++){
+             if(a[i][j]=='.'){
+                count++;
+                 flag=1;
+             }else{
+                 flag=0;
+             }
+             
+             if(flag==1 && j==(m-1)){
+                  price+=(y*(count/2) + x*(count%2));
+                  continue;
+             }
+             
+             if(flag==0 && count>0){
+                 price+=(y*(count/2) + x*(count%2));
+                 count=0;
+             }
+                
+         }
+     }
+     cout<<price<<endl;
+    }
+    return 0;
+}
